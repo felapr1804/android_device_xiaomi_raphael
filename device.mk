@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2022 The Havoc-OS Project
+# Copyright (C) 2022 The ArcaneOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -27,8 +27,7 @@ PRODUCT_COPY_FILES += \
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-havoc
+    $(LOCAL_PATH)/overlay
 
 # Properties
 -include $(LOCAL_PATH)/system_prop.mk
@@ -47,7 +46,11 @@ PRODUCT_COPY_FILES += \
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
-    tinymix
+    audio.bluetooth.default \
+    audio.usb.default \
+    audio.r_submix.default \
+    audio.hearing_aid.default \
+    # tinymix
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_policy_engine_configuration.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/audio_policy_engine_configuration.xml \
@@ -79,10 +82,12 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_COPY_FILES += \
-    vendor/havoc/config/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml:system/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
+      frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml \
+#     vendor/havoc/config/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml:system/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
 
 PRODUCT_PACKAGES += \
-    lineage.biometrics.fingerprint.inscreen@1.0-service.raphael
+    lineage.biometrics.fingerprint.inscreen@1.0-service.raphael \
+    android.hardware.biometrics.fingerprint@2.1-service.xiaomi_raphael
 
 # FM
 PRODUCT_PACKAGES += \

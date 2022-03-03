@@ -1,13 +1,13 @@
 #
-# Copyright (C) 2022 The Havoc-OS Project
+# Copyright (C) 2022 The ArcaneOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/havoc_raphael.mk
+    $(LOCAL_DIR)/aosp_raphael.mk
 
 COMMON_LUNCH_CHOICES := \
-    havoc_raphael-user \
-    havoc_raphael-userdebug \
-    havoc_raphael-eng
+    aosp_raphael-user \
+    aosp_raphael-userdebug \
+    aosp_raphael-eng
